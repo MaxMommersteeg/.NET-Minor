@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
+using Minor.Dag58.SerilogDemo;
 
 namespace Minor.Dag58.Serilog
 {

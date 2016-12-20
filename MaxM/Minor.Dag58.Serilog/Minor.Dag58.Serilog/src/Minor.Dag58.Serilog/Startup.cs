@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Serilog;
 
-namespace Minor.Dag58.Serilog
+namespace Minor.Dag58.SerilogDemo
 {
     public class Startup
     {
@@ -34,8 +31,14 @@ namespace Minor.Dag58.Serilog
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            Log.Logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(Configuration)
+                .CreateLogger();
+
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+            loggerFactory.AddSerilog();
 
             if (env.IsDevelopment())
             {
