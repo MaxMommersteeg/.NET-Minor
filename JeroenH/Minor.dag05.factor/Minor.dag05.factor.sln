@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "minor.dag05.fac.test", "minor.dag05.fac.test\minor.dag05.fac.test.xproj", "{949AB109-3217-4EAF-ADB2-1AC9D760A81E}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Minor.dag05.fac", "Minor.dag05.fac\Minor.dag05.fac.xproj", "{57FA08AA-E638-493A-A010-5043258E64DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{949AB109-3217-4EAF-ADB2-1AC9D760A81E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{949AB109-3217-4EAF-ADB2-1AC9D760A81E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{949AB109-3217-4EAF-ADB2-1AC9D760A81E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{949AB109-3217-4EAF-ADB2-1AC9D760A81E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57FA08AA-E638-493A-A010-5043258E64DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57FA08AA-E638-493A-A010-5043258E64DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57FA08AA-E638-493A-A010-5043258E64DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57FA08AA-E638-493A-A010-5043258E64DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

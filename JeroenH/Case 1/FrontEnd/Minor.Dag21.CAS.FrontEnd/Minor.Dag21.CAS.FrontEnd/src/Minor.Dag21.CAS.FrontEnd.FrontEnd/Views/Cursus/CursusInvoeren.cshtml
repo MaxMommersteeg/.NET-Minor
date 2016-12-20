@@ -1,0 +1,34 @@
+@model  Minor.Dag21.CASServiceClient.Agents.Models.Cursus
+
+@{
+    ViewData["Title"] = "CursusInvoeren";
+}
+
+<h2>Cursus Invoeren</h2>
+
+<form asp-action="Create" asp-controller="Cursus" enctype="multipart/form-data">
+    <div class="form-horizontal">
+        <h4>Cursus</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">Input tekst bestand</label>
+            <input type="file" name="file" class="form-control" />
+            @*<span asp-validation-for="BeginDatum" class="text-danger" />*@
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Importeren" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Terug naar cursuslijst</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

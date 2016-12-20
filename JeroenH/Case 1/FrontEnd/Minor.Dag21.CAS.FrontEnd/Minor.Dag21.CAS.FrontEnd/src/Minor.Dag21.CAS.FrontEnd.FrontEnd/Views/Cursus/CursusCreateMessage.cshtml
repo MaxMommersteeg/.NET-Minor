@@ -1,0 +1,42 @@
+@model Minor.Dag21.CAS.FrontEnd.FrontEnd.ViewModels.CursusCreateMessageViewModel
+
+@{
+    ViewData["Title"] = "CursusMessage";
+}
+
+<h2>Cursus Message</h2>
+
+<p>
+    <a asp-action="Create">Importeer nieuwe cursussen</a>
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SuccesInsertCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ErrorAtLine)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalInsertCount)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.SuccesInsertCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.ErrorAtLine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.TotalInsertCount)
+            </td>
+
+        </tr>
+
+    </tbody>
+</table>

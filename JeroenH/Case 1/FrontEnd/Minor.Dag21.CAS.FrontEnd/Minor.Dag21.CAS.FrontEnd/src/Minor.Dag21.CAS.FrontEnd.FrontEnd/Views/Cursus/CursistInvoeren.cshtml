@@ -1,0 +1,46 @@
+@model Minor.Dag21.CASServiceClient.Agents.Models.Cursist
+
+@{
+    ViewData["Title"] = "CursistInvoeren";
+}
+
+<h2>Cursist invoeren</h2>
+
+<form asp-action="Create" asp-controller="Cursist">
+    <div class="form-horizontal">
+        <h4>Cursist</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Voornaam" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Voornaam" class="form-control" />
+                <span asp-validation-for="Voornaam" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Achternaam" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Achternaam" class="form-control" />
+                <span asp-validation-for="Achternaam" class="text-danger" />
+            </div>
+        </div>
+        @{
+            int cursusID = ViewBag.cursusId;
+        } 
+        <input asp-for="CursusInstantieID" class="form-control" type="hidden" value="@ViewBag.cursusId" />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Terug naar cursistenoverzicht</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

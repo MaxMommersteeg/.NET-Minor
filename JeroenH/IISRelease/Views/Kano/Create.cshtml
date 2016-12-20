@@ -1,0 +1,47 @@
+@model Dag20.Minor.KanoWeb.Models.Kano
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<form asp-action="Create">
+    <div class="form-horizontal">
+        <h4>Kano</h4>
+        <hr />
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="kanoID" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                
+                <input asp-for="kanoID" class="form-control" />
+                <span asp-validation-for="kanoID" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="kanoType" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="kanoType"
+                        asp-items="Html.GetEnumSelectList<Models.KanoTypes>()"
+                        class="form-control">                    
+                </select> 
+
+                <span asp-validation-for="kanoType" class="text-danger" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

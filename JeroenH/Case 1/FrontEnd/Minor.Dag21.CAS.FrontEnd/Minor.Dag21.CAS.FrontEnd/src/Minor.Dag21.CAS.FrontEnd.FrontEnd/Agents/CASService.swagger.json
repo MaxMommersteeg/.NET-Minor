@@ -1,0 +1,368 @@
+﻿{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "CAS - Cursus Administratie Systeem",
+    "description": "Cursussen bijhouden voor Infosupport",
+    "termsOfService": "None"
+  },
+  "basePath": "/",
+  "paths": {
+    "/api/Cursist": {
+      "get": {
+        "tags": [ "Cursist" ],
+        "operationId": "CursistGetAll",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/Cursist" }
+            }
+          },
+          "400": {
+            "description": "Client Error",
+            "schema": { "$ref": "#/definitions/Foutmelding" }
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [ "Cursist" ],
+        "operationId": "UpdateCursist",
+        "consumes": [ "application/json", "text/json", "application/json-patch+json" ],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "body",
+            "required": false,
+            "schema": { "$ref": "#/definitions/Cursist" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/Cursist" }
+          },
+          "400": {
+            "description": "Client Error",
+            "schema": { "$ref": "#/definitions/Foutmelding" }
+          },
+          "404": {
+            "description": "Client Error",
+            "schema": { "$ref": "#/definitions/Foutmelding" }
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [ "Cursist" ],
+        "operationId": "PostCursist",
+        "consumes": [ "application/json", "text/json", "application/json-patch+json" ],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "body",
+            "required": false,
+            "schema": { "$ref": "#/definitions/Cursist" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/Cursist" }
+          },
+          "400": {
+            "description": "Client Error",
+            "schema": { "$ref": "#/definitions/Foutmelding" }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Cursist/{id}": {
+      "get": {
+        "tags": [ "Cursist" ],
+        "operationId": "GetByIDCursist",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/Cursist" }
+          },
+          "404": {
+            "description": "Client Error",
+            "schema": { "$ref": "#/definitions/Foutmelding" }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Cursist/{cursusId}": {
+      "get": {
+        "tags": [ "Cursist" ],
+        "operationId": "GetCursistenByInschrijving",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "cursusId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/Cursist" }
+            }
+          },
+          "404": {
+            "description": "Client Error",
+            "schema": { "$ref": "#/definitions/Foutmelding" }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Cursus": {
+      "get": {
+        "tags": [ "Cursus" ],
+        "operationId": "GetAll",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/CursusInstantie" }
+            }
+          },
+          "400": {
+            "description": "Client Error",
+            "schema": { "$ref": "#/definitions/Foutmelding" }
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [ "Cursus" ],
+        "operationId": "Update",
+        "consumes": [ "application/json", "text/json", "application/json-patch+json" ],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "body",
+            "required": false,
+            "schema": { "$ref": "#/definitions/CursusInstantie" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/CursusInstantie" }
+          },
+          "400": {
+            "description": "Client Error",
+            "schema": { "$ref": "#/definitions/Foutmelding" }
+          },
+          "404": {
+            "description": "Client Error",
+            "schema": { "$ref": "#/definitions/Foutmelding" }
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [ "Cursus" ],
+        "operationId": "Post",
+        "consumes": [ "application/json", "text/json", "application/json-patch+json" ],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "body",
+            "required": false,
+            "schema": { "$ref": "#/definitions/CursusInstantie" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/CursusInstantie" }
+          },
+          "400": {
+            "description": "Client Error",
+            "schema": { "$ref": "#/definitions/Foutmelding" }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Cursus/{datum}": {
+      "get": {
+        "tags": [ "Cursus" ],
+        "operationId": "GetByWeek",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "datum",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/CursusInstantie" }
+            }
+          },
+          "400": {
+            "description": "Client Error",
+            "schema": { "$ref": "#/definitions/Foutmelding" }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/Cursus/{id}": {
+      "get": {
+        "tags": [ "Cursus" ],
+        "operationId": "GetByID",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/CursusInstantie" }
+          },
+          "404": {
+            "description": "Client Error",
+            "schema": { "$ref": "#/definitions/Foutmelding" }
+          }
+        },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [ "Cursus" ],
+        "operationId": "Delete",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/Cursus" }
+          },
+          "400": {
+            "description": "Client Error",
+            "schema": { "$ref": "#/definitions/Foutmelding" }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "Cursist": {
+      "required": [ "cursusInstantieID", "voornaam", "achternaam" ],
+      "type": "object",
+      "properties": {
+        "cursistId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "cursusInstantieID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "voornaam": { "type": "string" },
+        "achternaam": { "type": "string" }
+      }
+    },
+    "Foutmelding": {
+      "type": "object",
+      "properties": {
+        "errorType": {
+          "format": "int32",
+          "enum": [ 0, 10, 20, 30, 40 ],
+          "type": "integer"
+        },
+        "errorMessage": { "type": "string" },
+        "remedy": { "type": "string" }
+      }
+    },
+    "CursusInstantie": {
+      "required": [ "cursus", "startdatum" ],
+      "type": "object",
+      "properties": {
+        "cursusInstantieID": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "cursus": { "$ref": "#/definitions/Cursus" },
+        "startdatum": {
+          "format": "date-time",
+          "type": "string"
+        }
+      }
+    },
+    "Cursus": {
+      "type": "object",
+      "properties": {
+        "cursusId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "cursuscode": { "type": "string" },
+        "titel": { "type": "string" },
+        "duur": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {}
+}

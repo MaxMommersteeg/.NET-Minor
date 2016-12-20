@@ -1,0 +1,69 @@
+<link rel="import" href="https://cdn.rawgit.com/download/polymer-cdn/1.5.0/lib/polymer/polymer.html" />
+<link rel="import" href="./highlight.html" />
+
+
+<dom-module is="product-detail">
+	<template>
+		<style>
+			:host {
+				display: inline block;  
+                              
+			}
+            :host.highlighted {
+                background-color: red;
+            }			
+
+                
+
+			
+		</style>
+		<h1>{{ title}}</h1>
+		<hr/>
+		<p> {{ details }}</p>
+		<div class="buttons">
+			Current stock: {{ stock }} <br/>
+			<button on-tap="buy" disabled$="{{isOutOfStock}}">Buy this product</button>
+		</div>
+	</template>
+	<script>
+  Polymer({
+      is:'product-detail',
+      behaviors: [HighlightBehaviour],
+      properties:{
+          stock:{
+              type:Number, 
+              value:10,
+              notify:true,
+              reflectToAttribute:true,
+              observer:'_stockChanged'
+          },
+          details: {
+              type:String, 
+              value:'An IPad is a revolutionary thing',
+          },
+          title: {
+              type:String, 
+              value:'IPad 7',
+              notify:true,
+          },
+          isOutOfStock: {
+              type:Boolean,
+              computed:'_hasStock(stock)'
+          }
+      },
+      _stockChanged:function(){
+          if (this.stock < 1) this.fire('outofstock');
+      },
+      _hasStock: function() { 
+          return this.stock<1; 
+      },
+      buy: function(){
+        this.stock--;
+        this.fire("bought");
+      },
+      addStock: function(value){
+        this.stock += value;
+      }
+  });
+  </script>
+</dom-module>

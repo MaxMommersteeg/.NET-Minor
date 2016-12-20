@@ -1,0 +1,20 @@
+<script>
+    HighlightBehaviour = {
+      properties: {
+        highlight: {
+          type: Boolean, 
+          value: false,
+          notify: true, 
+          observer: '_highlightChanged',
+          reflectedToAttribute: true
+        }
+      },
+      listeners: { click: '_toggleHighlight' },
+      created: function() {
+        console.log('Highlighting ', this, 'enabled!');
+      },
+      _toggleHighlight: function() { this.highlight = !this.highlight; },
+      _highlightChanged: function(value) {
+        this.toggleClass('highlighted', value);
+      }};
+</script>

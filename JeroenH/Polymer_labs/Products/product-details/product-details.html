@@ -1,0 +1,70 @@
+<dom-module is="product-detail">
+	<template>
+		<style>
+			:host {
+				display: inline block;
+			}
+		</style>
+		<h1>{{ title}}</h1>
+		<hr/>
+		<p> {{ details }}</p>
+		<div class="buttons">
+			Current stock: {{ stock }} <br/>
+			<button on-tap='buy' disabled$="{{isOutOfStock}}">Buy this product</button>
+		</div>
+	</template>
+	<script>
+  Polymer({
+      is:'product-detail',
+      properties:{
+          stock:{
+              type:Number, 
+              value:10,
+              notify:true,
+          },
+          details: {
+              type:String, 
+              value:'An IPad is a revolutionary thing',
+          },
+          title: {
+              type:String, 
+              value:'IPad 7',
+              notify:true,
+          },
+          isOutOfStock:{
+              type:Boolean,
+              computed: 'calculateStock(stock)'
+
+          }
+      },
+       calculateStock:  function(stock){
+                  if(stock<1){
+                      return true;
+                  }
+                  return false;
+              },
+        buy: function(){
+            if(this.stock===0)
+            {
+                this.fire('outofstock');                
+            }
+            else
+            {
+                if(this.stock===1)
+                {
+                    this.fire('outofstock');
+                }
+                this.stock--;
+                this.fire('bought');
+            }
+
+        },
+        addStock: function(value){
+            this.stock += value;
+            
+        }
+
+
+  });
+  </script>
+</dom-module>

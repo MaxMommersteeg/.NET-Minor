@@ -1,0 +1,233 @@
+﻿{
+  "swagger": "2.0",
+  "info": {
+    "version": "v1",
+    "title": "MonumentService",
+    "description": "A RESTfull service for monument registration",
+    "termsOfService": "None"
+  },
+  "basePath": "/",
+  "paths": {
+    "/api/v1/Monument": {
+      "get": {
+        "tags": [ "Monument" ],
+        "operationId": "ApiV1MonumentGet",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/Monument" }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [ "Monument" ],
+        "operationId": "ApiV1MonumentPost",
+        "consumes": [ "application/json", "text/json", "application/json-patch+json" ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "monument",
+            "in": "body",
+            "required": false,
+            "schema": { "$ref": "#/definitions/Monument" }
+          }
+        ],
+        "responses": { "200": { "description": "Success" } },
+        "deprecated": false
+      }
+    },
+    "/api/v1/Monument/{id}": {
+      "get": {
+        "tags": [ "Monument" ],
+        "operationId": "ApiV1MonumentByIdGet",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "monumentId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "$ref": "#/definitions/Monument" }
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [ "Monument" ],
+        "operationId": "ApiV1MonumentByIdPut",
+        "consumes": [ "application/json", "text/json", "application/json-patch+json" ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "monument",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "dummyMonument",
+            "in": "body",
+            "required": false,
+            "schema": { "$ref": "#/definitions/Monument" }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": { "200": { "description": "Success" } },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [ "Monument" ],
+        "operationId": "ApiV1MonumentByIdDelete",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": { "200": { "description": "Success" } },
+        "deprecated": false
+      }
+    },
+    "/api/Values": {
+      "get": {
+        "tags": [ "Values" ],
+        "operationId": "ApiValuesGet",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "deprecated": false
+      },
+      "post": {
+        "tags": [ "Values" ],
+        "operationId": "ApiValuesPost",
+        "consumes": [ "application/json", "text/json", "application/json-patch+json" ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "body",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "Success" } },
+        "deprecated": false
+      }
+    },
+    "/api/Values/{id}": {
+      "get": {
+        "tags": [ "Values" ],
+        "operationId": "ApiValuesByIdGet",
+        "consumes": [],
+        "produces": [ "text/plain", "application/json", "text/json" ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": { "type": "string" }
+          }
+        },
+        "deprecated": false
+      },
+      "put": {
+        "tags": [ "Values" ],
+        "operationId": "ApiValuesByIdPut",
+        "consumes": [ "application/json", "text/json", "application/json-patch+json" ],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "value",
+            "in": "body",
+            "required": false,
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": { "200": { "description": "Success" } },
+        "deprecated": false
+      },
+      "delete": {
+        "tags": [ "Values" ],
+        "operationId": "ApiValuesByIdDelete",
+        "consumes": [],
+        "produces": [],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": { "200": { "description": "Success" } },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "Monument": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int64",
+          "type": "integer"
+        },
+        "monumentNaam": { "type": "string" }
+      }
+    }
+  },
+  "securityDefinitions": {}
+}

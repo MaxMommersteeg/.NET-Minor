@@ -1,0 +1,5 @@
+﻿FROM microsoft/dotnet:1.0.1-core
+ARG source=./bin/Debug/netcoreapp1.0/publish
+WORKDIR /app
+ENTRYPOINT ["dotnet", "Dag34.Minor.Chatservice.dll"]
+COPY $source .

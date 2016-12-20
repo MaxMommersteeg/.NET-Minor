@@ -1,0 +1,79 @@
+@model IEnumerable<Minor.Dag21.CASServiceClient.Agents.Models.CursusInstantie>
+
+@{
+    ViewData["Title"] = "CursusWeergeven";
+}
+
+<h2>Cursus Weergeven</h2>
+
+<p>
+    <a asp-action="Create">Importeer nieuwe cursussen</a>
+</p>
+
+<table>
+    <tr>
+        <td width="200">            
+            @Html.ActionLink("Week terug", "Overzicht", new { weekNummer = ViewBag.vorigeWeekNummer, jaarNummer = ViewBag.vorigeWeekJaar })
+        </td>
+        <td width="300">
+            <form asp-action="Overzicht" asp-controller="Cursus" enctype="multipart/form-data" method="get">
+                <label>Week: </label><input type="number" class="form-control" name="weekNummer" value="@ViewBag.weekSelectie" />
+                <label>Jaar: </label><input type="number" class="form-control" name="jaarNummer" value="@ViewBag.jaarSelectie" />
+                <input type="submit" value="Navigeer Naar Week" class="btn btn-default" />
+            </form>
+        </td>
+        <td width="200">
+            @Html.ActionLink("Week verder", "Overzicht", new { weekNummer = ViewBag.volgendeWeekNummer, jaarNummer = ViewBag.volgendeWeekJaar })
+
+        </td>
+
+    </tr>
+    
+</table>
+
+
+
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Startdatum)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cursus.Cursuscode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cursus.Titel)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Cursus.Duur)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Startdatum.ToString("dd/MM/yyyy")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cursus.Cursuscode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cursus.Titel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cursus.Duur)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id=item.CursusInstantieID })
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

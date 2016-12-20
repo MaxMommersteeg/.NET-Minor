@@ -1,0 +1,26 @@
+﻿@model List<Monument>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                MonumentNaam
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Monument monument in Model)
+        {
+            <tr>
+                <td>
+                    @monument.MonumentNaam <input type="button" value="Delete"
+       onclick="location.href='@Url.Action("Verwijderen", "Monumenten", monument)'" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<input type="button" value="CreateNew" 
+       onclick="location.href='@Url.Action("Toevoegen", "Monumenten")'" />
+

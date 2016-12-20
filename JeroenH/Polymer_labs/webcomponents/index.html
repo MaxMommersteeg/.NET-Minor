@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="node_modules\custom-elements\src\CustomElements.js"></script>
+                    <link  rel="import" href="name-badge.html"/>
+
+        
+    </head>
+    <body>
+        <div><h1>Polymer Trainer List</h1></div>
+        <hr/>
+        <name-badge contactname="Mister Bla"></name-badge>
+    </body>
+
+            <script>
+            document.body.appendChild(document.querySelector('link[rel="import"]').import.querySelector("#mytemplate"));
+
+        </script>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<head>
+    <link rel="import" href="https://rawgit.com/Polymer/polymer/master/polymer.html"/>
+    <script src="node_modules\webcomponents.js\CustomElements.js"/></script>
+    <script src="node_modules\webcomponents.js\webcomponents.js"/></script>
+
+
+    <link rel="import" href="Product-details/product-details.html"/>
+</head>
+<body>
+    <dom-module id="my-app">
+        <template>
+            <product-detail on-bought="_bought" on-outofstock="_outofstock"></product-detail>
+        </template>
+        <script>          
+            Polymer({
+                is:'my-app',
+                _outofstock:function(){ console.log("product out of stock")},
+                _bought:function(){ console.log("product bought")}
+            })
+        </script>
+    </dom-module>
+    <my-app>balbla</my-app>
+        blabla
+
+</body>
+</html>

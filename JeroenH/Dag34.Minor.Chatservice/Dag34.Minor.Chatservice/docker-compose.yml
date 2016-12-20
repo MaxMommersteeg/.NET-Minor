@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  dag34.minor.chatservice:
+    image: user/dag34.minor.chatservice${TAG}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - rabbithutch
+    links:
+      - hellodb
+
+  hellodb:
+    image: "mysql:latest"
+    volumes:
+      - "./.data/db:/var/lib/mysql"
+    environment:
+      - MYSQL_ROOT_PASSWORD=Pa$$w0rd
+
+networks:
+  rabbithutch:
+    external:
+      name: rabbithutch
+
