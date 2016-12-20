@@ -17,14 +17,17 @@ namespace LoggingDemo.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var vm = new MinorViewModel() { Docent = "Marco" };
+            return View(vm);
         }
 
         public IActionResult About()
         {
-            _logger.LogInformation("informatie");
+            _logger.LogInformation("Informatie log");
             try
             {
+                _logger.LogDebug("Debug info :-)");
+
                 ViewData["Message"] = "Your application description page.";
                 throw new Exception("Hier gaat die stuk");
             }

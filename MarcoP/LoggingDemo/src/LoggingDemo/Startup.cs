@@ -35,13 +35,12 @@ namespace LoggingDemo
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            // Sander.Wannet@infosupport.com
             Log.Logger = new LoggerConfiguration()
-                .ReadFrom.Configuration(Configuration)
+                .ReadFrom.ConfigurationSection(Configuration.GetSection("SerilogDebug"))
+                .ReadFrom.ConfigurationSection(Configuration.GetSection("SerilogError"))
                 .CreateLogger();
-                //.WriteTo.File(@"C:\temp\logfile.txt")
-                //.Enrich.FromLogContext()
-                //.CreateLogger();
-
+    
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
