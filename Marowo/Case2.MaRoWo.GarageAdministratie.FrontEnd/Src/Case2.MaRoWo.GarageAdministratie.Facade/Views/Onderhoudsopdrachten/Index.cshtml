@@ -1,0 +1,40 @@
+﻿@using Case2.MaRoWo.GarageAdministratie.Facade.ViewModels
+@model OnderhoudsopdrachtenOverzichtViewModel
+@{
+    ViewData["Title"] = "Onderhoudsopdrachten overzicht";
+}
+
+<h2>Onderhoudsopdrachten overzicht</h2>
+
+<table class="table">
+    <tr>
+        <th><b>@Html.DisplayNameFor(x => x.Onderhoudsopdrachten.First().BestuurderNaam)</b></th>
+        <th><b>@Html.DisplayNameFor(x => x.Onderhoudsopdrachten.First().TelefoonNrBestuurder)</b></th>
+        <th><b>@Html.DisplayNameFor(x => x.Onderhoudsopdrachten.First().Kenteken)</b></th>
+        <th><b>@Html.DisplayNameFor(x => x.Onderhoudsopdrachten.First().OpdrachtStatusBeschrijving)</b></th>
+        <th><b>@Html.DisplayNameFor(x => x.Onderhoudsopdrachten.First().OpdrachtAangemaakt)</b></th>
+        <th colspan="2">Opties</th>
+    </tr>
+
+    @foreach (var onderhoudsopdracht in Model.Onderhoudsopdrachten)
+    {
+        <tr>
+            <td>@onderhoudsopdracht.BestuurderNaam</td>
+            <td>@onderhoudsopdracht.TelefoonNrBestuurder</td>
+            <td>@onderhoudsopdracht.Kenteken</td>
+            <td>@onderhoudsopdracht.OpdrachtStatusBeschrijving</td>
+            <td><div datetime-utc="@onderhoudsopdracht.OpdrachtAangemaakt" datetime-format="dd-MM-yyyy HH:mm"></div></td>
+            <td>
+                    <a asp-controller="Onderhoudsopdracht" asp-action="Index" asp-route-onderhoudsopdrachtId="@onderhoudsopdracht.OnderhoudsId" class="btn btn-success">Details bekijken</a>
+            </td>
+            <td>
+                @if (onderhoudsopdracht.IsAPKKeuring && onderhoudsopdracht.OpdrachtStatusId == 10)
+                {
+                    <a asp-controller="Apk" asp-action="Index" asp-route-onderhoudsopdrachtId="@onderhoudsopdracht.OnderhoudsId" class="btn btn-success">Apk aanvragen</a>
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+<a asp-controller="Onderhoudsopdrachten" asp-action="Toevoegen" class="btn btn-primary"> Onderhoudsopdracht toevoegen</a>

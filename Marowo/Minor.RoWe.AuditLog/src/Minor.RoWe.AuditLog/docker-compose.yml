@@ -1,0 +1,54 @@
+version: '2'
+
+services:
+  marowo.auditlog.mssql:
+    image: microsoft/mssql-server-linux
+    container_name: marowo-auditlog-mssql
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: P@55w0rd
+    networks:
+      - marowo_auditlog_network
+    ports:
+      - 9002:1433
+    volumes:
+      - "C:/Docker/.MaRoWoAuditlogData/db:/var/opt/mssql/"
+
+  marowo.eventbus.rabbitmq:
+    image: rabbitmq:3-management
+    container_name: marowo-rabbitmq-server
+    environment:
+      RABBITMQ_DEFAULT_USER: MaRoWo
+      RABBITMQ_DEFAULT_PASS: MaR0W0
+    networks:
+      - marowo_main_network
+    ports:
+      - 15673:15672
+
+  minor.rowe.auditlog:
+    image: robg66/marowo.auditlog.service${TAG}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - marowo.eventbus.rabbitmq
+      - marowo.auditlog.mssql
+    environment:
+      dbconnectionstring: Server=marowo-auditlog-mssql;Database=MaRoWoAuditlog;User Id=sa;Password=P@55w0rd;
+      rabbitmq-exchange: MaRoWoEventbus
+      rabbitmq-queue: MaRoWoAuditlog
+      rabbitmq-host: marowo-rabbitmq-server
+      rabbitmq-username: MaRoWo
+      rabbitmq-password: MaR0W0 
+      logpath: /var/log/Garage/AuditlogLogging
+    networks:
+      - marowo_auditlog_network
+      - marowo_main_network
+    volumes:
+      - "C:/Docker/.MaRoWoAuditlogData/Log:/var/log/Garage/AuditlogLogging/"
+
+networks:
+  marowo_main_network: 
+    external:
+      name: marowo_main_network
+  marowo_auditlog_network:

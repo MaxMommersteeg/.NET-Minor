@@ -1,0 +1,1 @@
+AutoRest.exe -Input "swagger.json" -ClientName "CASService" -Namespace "FrontEnd.Agents" -CodeGenerator CSharp -Modeler Swagger

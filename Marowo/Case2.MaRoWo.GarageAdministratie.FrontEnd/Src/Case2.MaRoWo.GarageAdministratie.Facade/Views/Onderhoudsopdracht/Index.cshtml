@@ -1,0 +1,41 @@
+﻿@using Case2.MaRoWo.GarageAdministratie.Facade.ViewModels
+@model OnderhoudsopdrachtViewModel
+@{
+    ViewData["Title"] = "Onderhoudsopdracht details";
+}
+
+<div class="row top-buffer">
+    <div class="col-md-2">
+        @if (@Model.IsAPKKeuring && @Model.OpdrachtStatusId == 10)
+        {
+            <a asp-controller="Apk" asp-action="Index" asp-route-onderhoudsopdrachtId="@Model.OnderhoudsId" class="btn btn-success">Apk aanvragen</a>
+        }
+    </div>
+    <div class="col-md-2">
+        @if (!@Model.IsAPKKeuring && @Model.OpdrachtStatusId == 10)
+        {
+            <a asp-controller="Onderhoudsopdracht" asp-action="OnderhoudsopdrachtAfmelden" asp-route-onderhoudsopdrachtId="@Model.OnderhoudsId" class="btn btn-primary">Onderhoudsopdracht afmelden</a>
+        }
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h2>Onderhoudsopdracht voor kenteken: @Model.Kenteken</h2>
+        <p><strong>@Html.DisplayNameFor(m => m.OpdrachtAangemaakt):</strong> <div datetime-utc="@Model.OpdrachtAangemaakt" datetime-format="dd-MM-yyyy HH:mm"></div></p>
+        <p><strong>@Html.DisplayNameFor(m => m.OpdrachtStatusBeschrijving):</strong> <span>@Model.OpdrachtStatusBeschrijving</span></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h3>Contactgegevens bestuurder</h3>
+        <p><strong>@Html.DisplayNameFor(m => m.BestuurderNaam):</strong> <span>@Model.BestuurderNaam</span></p>
+        <p><strong>@Html.DisplayNameFor(m => m.TelefoonNrBestuurder):</strong> <span>@Model.TelefoonNrBestuurder</span></p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <h3>@Html.DisplayNameFor(m => m.OnderhoudOmschrijving)</h3>
+        <p>@Model.OnderhoudOmschrijving</p>
+        <h3></h3>
+    </div>
+</div>

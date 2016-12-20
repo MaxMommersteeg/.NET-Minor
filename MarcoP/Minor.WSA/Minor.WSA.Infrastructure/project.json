@@ -1,0 +1,30 @@
+{
+  "version": "1.0.2-*",
+  "description": "This Library abstracts away from RabbitMQ to build an event bus. It has an EventPublisher and EventDispatcher",
+ 
+  "dependencies": {
+    "Minor.WSA.Common": "1.0.2-*",
+    "NETStandard.Library": "1.6.0",
+    "Newtonsoft.Json": "9.0.1",
+    "RabbitMQ.Client": "4.1.1",
+    "System.Reflection.TypeExtensions": "4.1.0"
+  },
+
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50"
+    }
+  },
+
+  "packOptions": {
+    "summary": "An event bus op top of RabbitMQ.",
+    "tags": [ "event driven architecture", "event bus" ],
+    "owners": [ "Marco Pil" ]
+  },
+
+  "scripts": {
+    "postcompile": [
+      "dotnet pack -o C:\\_localNugetFeed --no-build --configuration %compile:Configuration%"
+    ]
+  }
+}

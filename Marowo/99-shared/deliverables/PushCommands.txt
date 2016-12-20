@@ -1,0 +1,4 @@
+docker push robg66/marowo.rdw.integrationservice:latest
+docker push robg66/marowo.auditlog.service:latest
+docker push robg66/marowo.onderhoudsbeheer.service:latest
+docker push robg66/marowo.garage.administratie.frontend:latest

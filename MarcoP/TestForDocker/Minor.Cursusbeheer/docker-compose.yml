@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  minor.cursusbeheer:
+    image: minor.cursusbeheer
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "12345:80"

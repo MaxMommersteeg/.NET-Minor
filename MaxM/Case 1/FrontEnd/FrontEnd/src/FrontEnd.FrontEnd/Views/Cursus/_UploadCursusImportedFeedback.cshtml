@@ -1,0 +1,14 @@
+@using FrontEnd.ViewModels.Cursus
+@model CursusImportedFeedbackViewModel
+
+@if (Model != null)
+{
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            @Model.Title
+        </div>
+        <div class="panel-body">
+            @Model.ImportedCount      
+        </div>
+    </div>
+}

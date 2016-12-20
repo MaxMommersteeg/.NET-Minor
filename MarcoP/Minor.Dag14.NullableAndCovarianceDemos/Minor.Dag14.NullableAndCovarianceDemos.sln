@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{19B902C2-5758-427A-9A06-84A97A3712AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3E8A2415-4490-4186-A8F9-8215BD8A74FA}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Minor.Dag14.NullableAndCovarianceDemos", "src\Minor.Dag14.NullableAndCovarianceDemos\Minor.Dag14.NullableAndCovarianceDemos.xproj", "{922007A9-A592-4AF1-9AE4-B03EB364C1F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{922007A9-A592-4AF1-9AE4-B03EB364C1F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{922007A9-A592-4AF1-9AE4-B03EB364C1F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{922007A9-A592-4AF1-9AE4-B03EB364C1F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{922007A9-A592-4AF1-9AE4-B03EB364C1F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{922007A9-A592-4AF1-9AE4-B03EB364C1F6} = {19B902C2-5758-427A-9A06-84A97A3712AE}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{780AA796-0DEF-46DA-93F9-748A655C4267}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F9680E38-0985-46BC-8755-F75EA9213B41}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Minor.RoWe.AuditLogService", "src\Minor.RoWe.AuditLog\Minor.RoWe.AuditLogService.xproj", "{7BFE4287-BC07-47CF-B301-CB60A815A1A1}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Minor.RoWe.AuditCommon", "src\AuditCommon\Minor.RoWe.AuditCommon.xproj", "{135AAF19-76EB-474C-A0E0-C2C287145E1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BFE4287-BC07-47CF-B301-CB60A815A1A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BFE4287-BC07-47CF-B301-CB60A815A1A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BFE4287-BC07-47CF-B301-CB60A815A1A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BFE4287-BC07-47CF-B301-CB60A815A1A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{135AAF19-76EB-474C-A0E0-C2C287145E1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{135AAF19-76EB-474C-A0E0-C2C287145E1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{135AAF19-76EB-474C-A0E0-C2C287145E1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{135AAF19-76EB-474C-A0E0-C2C287145E1E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7BFE4287-BC07-47CF-B301-CB60A815A1A1} = {780AA796-0DEF-46DA-93F9-748A655C4267}
+		{135AAF19-76EB-474C-A0E0-C2C287145E1E} = {780AA796-0DEF-46DA-93F9-748A655C4267}
+	EndGlobalSection
+EndGlobal

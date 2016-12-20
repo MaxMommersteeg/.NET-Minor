@@ -1,0 +1,19 @@
+﻿{
+  "version": "1.0.10-*",
+
+  "dependencies": {
+    "Minor.RoWe.Common": "*",
+    "NETStandard.Library": "1.6.0"
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": "dnxcore50"
+    }
+  },
+  "scripts": {
+    "postcompile": [
+      "dotnet pack -o C:\\_localNugetFeed --no-build --configuration %compile:Configuration%"
+    ]
+  }
+}

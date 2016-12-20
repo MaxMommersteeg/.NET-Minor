@@ -1,0 +1,30 @@
+﻿{
+  "name": "Awesomeness",
+  "version": "1.0.2-*",
+  "description": "Awesome description",
+  "copyright": "Awesome copyright",
+  "title": "Awesome title",
+
+  "dependencies": {
+    "NETStandard.Library": "1.6.0"
+  },
+
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50"
+    }
+  },
+
+  "packOptions": {
+    "summary": "This is my awesome library",
+    "tags": [ "Super", "Vet" ],
+    "owners": [ "Marco Pil" ]
+  },
+
+  "scripts": {
+    "postcompile": [
+      "dotnet pack -o C:\\_localNugetFeed --no-build --configuration %compile:Configuration%"
+    ]
+  }
+
+}

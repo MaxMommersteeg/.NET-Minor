@@ -1,0 +1,26 @@
+﻿{
+  "version": "1.0.2-*",
+
+  "dependencies": {
+    "NETStandard.Library": "1.6.0"
+  },
+
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50"
+    }
+  },
+
+
+  "packOptions": {
+    "summary": "Support for event driven architecture",
+    "tags": [ "event driven architecture", "event bus" ],
+    "owners": [ "Marco Pil" ]
+  },
+
+  "scripts": {
+    "postcompile": [
+      "dotnet pack -o C:\\_localNugetFeed --no-build --configuration %compile:Configuration%"
+    ]
+  }
+}

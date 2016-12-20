@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E315098E-68B4-4A4B-A21A-66D16526032E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{133CABC1-AFF8-4BBB-84FF-5D6E79BF6B77}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Case2.MaRoWo.Logger", "src\Case2.MaRoWo.Logger\Case2.MaRoWo.Logger.xproj", "{6AA40609-6540-4CDD-B0FC-0F462A1861D5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{B6B8A5D4-2AD4-45C3-A9F4-BFBD22DD4F1F}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Case2.MaRoWo.Logger.Test", "Case2.MaRoWo.Logger.Test\Case2.MaRoWo.Logger.Test.xproj", "{D0FD9149-DD63-4DBA-BC26-7F72E7BD1444}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6AA40609-6540-4CDD-B0FC-0F462A1861D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AA40609-6540-4CDD-B0FC-0F462A1861D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AA40609-6540-4CDD-B0FC-0F462A1861D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AA40609-6540-4CDD-B0FC-0F462A1861D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0FD9149-DD63-4DBA-BC26-7F72E7BD1444}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0FD9149-DD63-4DBA-BC26-7F72E7BD1444}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0FD9149-DD63-4DBA-BC26-7F72E7BD1444}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0FD9149-DD63-4DBA-BC26-7F72E7BD1444}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6AA40609-6540-4CDD-B0FC-0F462A1861D5} = {E315098E-68B4-4A4B-A21A-66D16526032E}
+		{D0FD9149-DD63-4DBA-BC26-7F72E7BD1444} = {B6B8A5D4-2AD4-45C3-A9F4-BFBD22DD4F1F}
+	EndGlobalSection
+EndGlobal

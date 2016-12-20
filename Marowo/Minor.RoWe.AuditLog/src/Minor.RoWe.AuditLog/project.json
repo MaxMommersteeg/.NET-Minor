@@ -1,0 +1,34 @@
+{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "emitEntryPoint": true,
+    "debugType": "portable"
+  },
+  "dependencies": {
+    "Microsoft.NETCore.App": {
+      "version": "1.0.1",
+      "type": "platform"
+    },
+    "AuditCommon": "1.0.0-*",
+    "Microsoft.EntityFrameworkCore": "1.0.1",
+    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.1",
+    "Minor.RoWe.Common": "*",
+    "Minor.RoWe.Eventbus": "*",
+    "Minor.Case2.Events": "*",
+    "Case2.MaRoWo.Logger": "1.0.*"
+  },
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": [
+        "dnxcore50"
+      ]
+    }
+  },
+  "publishOptions": {
+    "include": [
+      "docker-compose.yml",
+      "Dockerfile",
+      ".dockerignore"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  minor.dag38.eventsender:
+    image: user/minor.dag38.eventsender${TAG}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+    - eventbus
+
+networks:
+  firsteventbus:
+    external:
+      name: eventbus

@@ -1,0 +1,60 @@
+﻿@using FE.Models
+@using static FE.HtmlHelpers.DisplayMeasure
+@model IEnumerable<Koffie>
+@{
+    ViewData["Title"] = "Koffie page";
+}
+
+<div class="col-md-12">
+    <div class="col-md-4">
+        <h1>Koffielijst</h1>
+    </div>
+    @if (Model == null || Model.Count() == 0)
+    {
+        <div class="col-md-4">
+            <h3>Geen koffie items</h3>
+        </div>
+    }
+    else
+    {
+        <div class="col-md-8">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>
+                            @Html.DisplayNameFor(x => Model.First().Id)
+                        </td>
+                        <td>
+                            @Html.DisplayNameFor(x => Model.First().Naam)
+                        </td>
+                        <td>
+                            @Html.DisplayNameFor(x => Model.First().MinimaleInhoudInCl)
+                        </td>
+                        <td>
+                            @Html.DisplayNameFor(x => Model.First().MaximaleInhoudInCl)
+                        </td>
+                        <td>
+                            Action
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var koffie in Model)
+                    {
+                        <tr>
+                            <td>@koffie.Id</td>
+                            <td>@koffie.Naam</td>
+                            <td>@Html.DisplayCL(koffie.MinimaleInhoudInCl)</td>
+                            <td>@Html.DisplayCL(koffie.MaximaleInhoudInCl)</td>
+                            <td><a asp-controller="Koffie" asp-action="Details" asp-route-koffieId="@koffie.Id">Details</a></td>
+                            <td><a asp-controller="Koffie" asp-action="Delete" asp-route-koffieId="@koffie.Id">Delete</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <a asp-controller="Koffie" asp-action="Add" class="pull-right btn btn-success">Add Koffie</a>
+        </div>
+    }
+</div>
+
+    

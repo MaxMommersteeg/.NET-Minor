@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  minor.dag57.tfsbuild:
+    image: user/minor.dag57.tfsbuild${TAG}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80"

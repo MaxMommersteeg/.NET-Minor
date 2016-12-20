@@ -1,0 +1,25 @@
+{
+  "version": "2.0.1-*",
+
+  "dependencies": {
+    "Microsoft.NETCore.App": {
+      "type": "platform",
+      "version": "1.0.1"
+    },
+    "Minor.RoWe.Common": "*",
+    "Newtonsoft.Json": "9.0.1",
+    "RabbitMQ.Client": "4.1.1"
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": "dnxcore50"
+    }
+  },
+
+  "scripts": {
+    "postcompile": [
+      "dotnet pack -o C:\\_localNugetFeed --no-build --configuration %compile:Configuration%"
+    ]
+  }
+}

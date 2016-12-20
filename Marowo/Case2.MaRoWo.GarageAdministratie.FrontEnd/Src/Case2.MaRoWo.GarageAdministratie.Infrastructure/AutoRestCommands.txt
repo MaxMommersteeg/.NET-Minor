@@ -1,0 +1,5 @@
+﻿Onderstaande command runnen vanaf Infrastructure (project) root:
+
+AutoRest.exe -Input "rdwintegration_swagger.json" -OutputDirectory "Agents/RdwIntegrationServiceAgent" -ClientName "RdwIntegrationServiceAgent" -Namespace "Case2.MaRoWo.GarageAdministratie.Infrastructure.Agents.RdwIntegrationService" -CodeGenerator CSharp -Modeler Swagger
+
+AutoRest.exe -Input "onderhoudbeheer_swagger.json" -OutputDirectory "Agents/OnderhoudBeheerServiceAgent" -ClientName "OnderhoudBeheerServiceAgent" -Namespace "Case2.MaRoWo.GarageAdministratie.Infrastructure.Agents.OnderhoudBeheerService" -CodeGenerator CSharp -Modeler Swagger

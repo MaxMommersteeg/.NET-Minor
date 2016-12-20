@@ -1,0 +1,42 @@
+version: '2'
+
+services:
+  marowo.onderhoudsbeheer.mssql:
+    image: microsoft/mssql-server-linux
+    container_name: marowo-onderhoudsbeheer-mssql
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: P@55w0rd
+    networks:
+      - marowo_onderhoudsbeheer_network
+    ports:
+      - 9004:1433
+    volumes:
+      - "C:/Docker/.OnderhoudsbeheerData/db:/var/opt/mssql/"
+
+  case2.marowo.onderhoudbeheer.service.facade:
+    image: robg66/marowo.onderhoudsbeheer.service${TAG}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      dbconnectionstring: Server=marowo-onderhoudsbeheer-mssql;Database=MaRoWoOnderhoudsBeheer;User Id=sa;Password=P@55w0rd;
+      rabbitmq-exchange: MaRoWoEventbus
+      rabbitmq-queue: MaRoWoOnderhoudsBeheer
+      rabbitmq-host: marowo-rabbitmq-server
+      rabbitmq-username: MaRoWo
+      rabbitmq-password: MaR0W0
+      logpath: /var/log/Garage/OnderhoudsBeheerLogging
+    networks:
+      - marowo_onderhoudsbeheer_network
+      - marowo_main_network
+    ports:
+      - 8002:80
+    volumes:
+      - "C:/Docker/.OnderhoudsbeheerData/Log:/var/log/Garage/OnderhoudsBeheerLogging/"
+
+networks:
+  marowo_main_network: 
+    external:
+      name: marowo_main_network
+  marowo_onderhoudsbeheer_network:

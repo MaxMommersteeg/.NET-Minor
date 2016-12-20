@@ -1,0 +1,9 @@
+De volgende projecten zijn niet echt intressant:
+Minor.Case2.Events
+Minor.RoWe.Eventbus
+Case2.MaRoWo.Logger
+
+Dit zijn nuget packages die op nuget staan.
+(soort van 3th party tools, geschreven door ons)
+
+

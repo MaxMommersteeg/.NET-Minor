@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  minor.dag38.eventlistener:
+    image: user/minor.dag38.eventlistener${TAG}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - eventbus
+
+networks:
+  eventbus:
+    external:
+      name: helloeventbus

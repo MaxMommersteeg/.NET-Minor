@@ -1,0 +1,173 @@
+version: '2'
+
+services:
+#-------------------------------- frontend
+  case2.marowo.garageadministratie.facade:
+    image: robg66/marowo.garage.administratie.frontend
+    container_name: marowo-garage-administratie-frontend-release
+    environment:
+      dbconnectionstring: Server=marowo-frontend-mssql-release;Database=MaRoWoGarageAdministratie;User Id=sa;Password=P@55w0rd;
+      rdw-integration-service: http://marowo-rdw-integrationservice-release
+      onderhoud-beheer-service:  http://marowo-onderhoudbeheer-service-release
+      rabbitmq-exchange: MaRoWoEventbus
+      rabbitmq-queue: Frontend
+      rabbitmq-host: marowo-rabbitmq-server-release
+      rabbitmq-username: MaRoWo
+      rabbitmq-password: MaR0W0
+      logpath: /var/log/Garage/FrontEndReleaseLogging
+      kvk-nummer: 28414272
+      instantie-type: garage
+      bedrijfsnaam: Garage MaRoWo B.V.
+      bedrijf-plaats: Utrecht 
+    networks:
+      - marowo_frontend_network
+      - marowo_main_network
+    ports:
+      - 7000:80
+    depends_on:
+      - marowo.frontend.mssql
+      - marowo.eventbus.rabbitmq
+    volumes:
+      - "C:/Docker/.ReleaseFrontendData/Log:/var/log/Garage/FrontEndReleaseLogging/"
+      
+  marowo.frontend.mssql:
+    image: microsoft/mssql-server-linux
+    container_name: marowo-frontend-mssql-release
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: P@55w0rd
+    networks:
+      - marowo_frontend_network
+    ports:
+      - 7001:1433
+    volumes:
+      - "C:/Docker/.ReleaseFrontendData/db:/var/opt/mssql/"
+#-------------------------------- Backend onderhouds beheer
+
+  marowo.onderhoudsbeheer.mssql:
+    image: microsoft/mssql-server-linux
+    container_name: marowo-onderhoudsbeheer-mssql-release
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: P@55w0rd
+    networks:
+      - marowo_onderhoudsbeheer_network
+    ports:
+      - 7002:1433
+    volumes:
+      - "C:/Docker/.ReleaseOnderhoudsbeheerData/db:/var/opt/mssql/"
+
+  case2.marowo.onderhoudbeheer.service.facade:
+    image: robg66/marowo.onderhoudsbeheer.service
+    container_name: marowo-onderhoudbeheer-service-release
+    environment:
+      dbconnectionstring: Server=marowo-onderhoudsbeheer-mssql-release;Database=MaRoWoOnderhoudsBeheer;User Id=sa;Password=P@55w0rd;
+      rabbitmq-exchange: MaRoWoEventbus
+      rabbitmq-queue: MaRoWoOnderhoudsBeheer
+      rabbitmq-host: marowo-rabbitmq-server-release
+      rabbitmq-username: MaRoWo
+      rabbitmq-password: MaR0W0
+      logpath: /var/log/Garage/OnderhoudsBeheerReleaseLogging
+    networks:
+      - marowo_onderhoudsbeheer_network
+      - marowo_main_network
+    ports:
+      - 7003:80  
+    depends_on:
+      - marowo.onderhoudsbeheer.mssql
+      - marowo.eventbus.rabbitmq      
+    volumes:
+      - "C:/Docker/.ReleaseOnderhoudsbeheerData/Log:/var/log/Garage/OnderhoudsBeheerReleaseLogging/"
+#----------------------------- intergation service
+
+  marowo.rdw.is.mssql:
+    image: microsoft/mssql-server-linux
+    container_name: marowo-rdw-is-mssql-release
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: P@55w0rd
+    networks:
+      - marowo_rdw_is_network
+    ports:
+      - 7004:1433
+    volumes:
+      - "C:/Docker/.ReleaseRdwIsData/db:/var/opt/mssql/"
+
+  case2.marowo.rdw.integrationservice.facade:
+    image: robg66/marowo.rdw.integrationservice
+    container_name: marowo-rdw-integrationservice-release
+    environment:
+      dbconnectionstring: Server=marowo-rdw-is-mssql-release;Database=MaRoWoRdwIs;User Id=sa;Password=P@55w0rd;
+      rabbitmq-exchange: MaRoWoEventbus
+      rabbitmq-host: marowo-rabbitmq-server-release
+      rabbitmq-username: MaRoWo
+      rabbitmq-password: MaR0W0
+      keuringsverzoek-xmlns: http://www.rdw.nl
+      keuringsverzoek-apk: http://www.rdw.nl/apk
+      rdw-requesturl: http://rdwserver:18423/rdw/APKKeuringsverzoek
+      logpath: /var/log/Garage/RdwIntegrationReleaseLogging
+    networks:
+      - marowo_rdw_is_network
+      - marowo_main_network
+    ports:
+      - 7005:80
+    depends_on:
+      - marowo.rdw.is.mssql
+      - marowo.eventbus.rabbitmq
+    volumes:
+      - "C:/Docker/.ReleaseRdwIsData/Log:/var/log/Garage/RdwIntegrationReleaseLogging/"
+#----------------------------------- auditlog
+
+  marowo.auditlog.mssql:
+    image: microsoft/mssql-server-linux
+    container_name: marowo-auditlog-mssql-release
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: P@55w0rd
+    networks:
+      - marowo_auditlog_network
+    ports:
+      - 7006:1433
+    volumes:
+      - "C:/Docker/.ReleaseMaRoWoAuditlogData/db:/var/opt/mssql/"
+
+  marowo.eventbus.rabbitmq:
+    image: rabbitmq:3-management
+    container_name: marowo-rabbitmq-server-release
+    environment:
+      RABBITMQ_DEFAULT_USER: MaRoWo
+      RABBITMQ_DEFAULT_PASS: MaR0W0
+    networks:
+      - marowo_main_network
+    ports:
+      - 7007:15672
+
+  minor.rowe.auditlog:
+    image: robg66/marowo.auditlog.service
+    container_name: marowo-auditlog-service-release
+    depends_on:
+      - marowo.eventbus.rabbitmq
+      - marowo.auditlog.mssql
+    environment:
+      dbconnectionstring: Server=marowo-auditlog-mssql-release;Database=MaRoWoAuditlog;User Id=sa;Password=P@55w0rd;
+      rabbitmq-exchange: MaRoWoEventbus
+      rabbitmq-queue: MaRoWoAuditlog
+      rabbitmq-host: marowo-rabbitmq-server-release
+      rabbitmq-username: MaRoWo
+      rabbitmq-password: MaR0W0 
+      logpath: /var/log/Garage/AuditlogReleaseLogging
+    networks:
+      - marowo_auditlog_network
+      - marowo_main_network
+    volumes:
+      - "C:/Docker/.ReleaseMaRoWoAuditlogData/Log:/var/log/Garage/AuditlogReleaseLogging/"
+networks:
+  marowo_main_network: 
+  marowo_frontend_network:
+  marowo_onderhoudsbeheer_network:
+  marowo_rdw_is_network:
+  marowo_auditlog_network:
+  
+
+  
+  

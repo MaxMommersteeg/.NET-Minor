@@ -1,0 +1,20 @@
+﻿@using Case2.MaRoWo.GarageAdministratie.Facade.ViewModels
+@model SteekproefViewModel
+
+<div class="alert alert-danger">
+    <p><strong>Steekproef!</strong> Bij deze keuringsaanvraag is een steekproef van toepassing.</p>
+    <p>Hiervoor zal een keuringsmeester langs komen.</p>
+    <p>
+        De datum is:
+        @if (Model.SteekproefDateTime != null)
+        {
+            <div datetime-utc="@Model.SteekproefDateTime" datetime-format="dd-MM-yyyy"></div>
+        }
+        else
+        {
+            <span>Onbekend</span>
+        }
+    </p>
+</div>
+
+

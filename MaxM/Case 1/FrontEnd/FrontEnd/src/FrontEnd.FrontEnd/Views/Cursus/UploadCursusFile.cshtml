@@ -1,0 +1,84 @@
+@using FrontEnd.Extensions;
+@using FrontEnd.ViewModels.Cursus;
+@model UploadCursusFileViewModel
+@{
+    ViewData["Title"] = Model.GetTitle();
+}
+
+@Html.Partial(@"..\Shared\_PageHeader", Model.PageHeaderViewModel)
+
+<div class="row">
+    <div class="col-md-4">
+        @Html.Partial(@"_UploadCursusImportedFeedback", Model.CursusImportedFeedbackViewModel)
+    </div>
+    <div class="col-md-4">
+        @Html.Partial(@"_UploadCursusDuplicatesFeedback")
+    </div>
+    <div class="col-md-4">
+        @Html.Partial(@"_UploadCursusErrorsFeedback")
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <hr />
+    </div>
+</div>
+
+<form asp-controller="Cursus" asp-action="UploadCursusFile" enctype="multipart/form-data">
+    <h4>Importeer Cursusbestand</h4>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.DisplayNameFor(x => x.StartDate)
+            </div>
+            <div class="form-group">
+                @Html.DisplayNameFor(x => x.EndDate)
+            </div>
+            <div class="form-group">
+                @Html.DisplayNameFor(x => x.UseDateRange)
+                @Html.DescriptionFor(x => x.UseDateRange)
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                @Html.TextBoxFor(x => x.StartDate, Html.DateForFormat(Model.StartDate, DateFormats.ddMMyyyy).ToString(), new { id = "dpStartDate" })
+            </div>
+            <div class="form-group">
+                @Html.TextBoxFor(x => x.EndDate, Html.DateForFormat(Model.EndDate, DateFormats.ddMMyyyy).ToString(), new { id = "dpEndDate" })
+            </div>
+            <div class="form-group">
+                @Html.EditorFor(x => x.UseDateRange, "checkbox", "cbUseDateRange")
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <hr />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label for="CursusFile"></label>
+                @Html.DisplayNameFor(x => x.CursusFile)
+                <input type="file" asp-for="CursusFile" name="CursusFile" accept=".txt" />
+                @Html.DescriptionFor(x => x.CursusFile)
+                <span asp-validation-for="CursusFile" class="text-danger" />
+            </div>
+            <input type="submit" value="Importeren" class="btn btn-primary pull-right" />
+        </div>
+    </div>
+</form>
+
+<div class="row">
+    <a asp-controller="Cursus" asp-action="Index">Terug naar lijst</a>
+</div>
+
+@section Scripts {
+    <script src="@Url.Content("~/js/cursus-uploadcursusfile.js")"></script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

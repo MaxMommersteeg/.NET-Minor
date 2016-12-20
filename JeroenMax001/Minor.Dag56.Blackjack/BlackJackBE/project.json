@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "Minor.WSA.EventBus": "1.0.4",
+    "RabbitMQ.Client": "5.0.0-pre2",
+    "NETStandard.Library": "1.6.0",
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": "dnxcore50"
+    }
+  }
+}

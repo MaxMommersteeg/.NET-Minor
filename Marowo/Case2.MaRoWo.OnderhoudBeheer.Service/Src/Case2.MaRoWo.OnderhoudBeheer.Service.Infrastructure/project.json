@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "Case2.MaRoWo.OnderhoudBeheer.Service.Domain": "1.0.0-*",
+    "Microsoft.EntityFrameworkCore": "1.0.1",
+    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.1",
+    "Minor.Case2.Events": "*",
+    "Minor.RoWe.Common": "2.0.*",
+    "Minor.RoWe.Eventbus": "2.0.*",
+    "NETStandard.Library": "1.6.0",
+    "Case2.MaRoWo.Logger": "1.0.*"
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": "dnxcore50"
+    }
+  }
+}

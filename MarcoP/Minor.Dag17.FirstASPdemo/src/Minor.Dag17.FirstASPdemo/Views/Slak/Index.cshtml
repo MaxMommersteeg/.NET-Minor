@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Minor.Dag17.FirstASPdemo.Entities.Slak>
+
+<h1>Hallo Slakkenliefhebber</h1>
+
+<table class="table">
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(model => item.ID)</td>
+                <td>@Html.DisplayFor(model => item.Soortnaam)</td>
+                <td>@Html.DisplayFor(model => item.Slijmviscociteit)</td>
+                <td>@Html.DisplayFor(model => item.Snelheid)</td>
+            </tr>
+        }
+    </tbody>
+</table>

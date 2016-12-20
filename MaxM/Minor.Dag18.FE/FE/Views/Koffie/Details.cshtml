@@ -1,0 +1,35 @@
+﻿@using FE.Models
+@using static FE.HtmlHelpers.DisplayMeasure
+@model Koffie
+@{
+    ViewData["Title"] = "Koffie Details";
+}
+
+<div class="col-md-12">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>@Html.DisplayNameFor(x => x.Id)</td>
+                <td>@Html.DisplayNameFor(x => x.Naam)</td>
+                <td>@Html.DisplayNameFor(x => x.MinimaleInhoudInCl)</td>
+                <td>@Html.DisplayNameFor(x => x.MaximaleInhoudInCl)</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Model.Id
+                </td>
+                <td>
+                    @Model.Naam
+                </td>
+                <td>
+                    @Html.DisplayCL(Model.MinimaleInhoudInCl)
+                </td>
+                <td>
+                    @Html.DisplayCL(Model.MaximaleInhoudInCl)
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

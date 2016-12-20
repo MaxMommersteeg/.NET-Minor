@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{D014CA62-4383-4CF9-99D2-9E72CB606AE1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D7E0F512-D7AF-4A4F-A6F9-A289BC5A06A5}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Minor.Dag10.BinaryTreeOefening", "src\Minor.Dag10.BinaryTreeOefening\Minor.Dag10.BinaryTreeOefening.xproj", "{69712225-C39E-4A37-BEEA-28193B976317}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{5F4B01C9-D6AB-4DFC-B9A4-AF478EC512E2}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Minor.Dag10.BinaryTreeOefening.Test", "Test\Minor.Dag10.BinaryTreeOefening.Test\Minor.Dag10.BinaryTreeOefening.Test.xproj", "{97C50ECF-B6B1-40EB-8ED1-CFD29F3B28CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69712225-C39E-4A37-BEEA-28193B976317}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69712225-C39E-4A37-BEEA-28193B976317}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69712225-C39E-4A37-BEEA-28193B976317}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69712225-C39E-4A37-BEEA-28193B976317}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97C50ECF-B6B1-40EB-8ED1-CFD29F3B28CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97C50ECF-B6B1-40EB-8ED1-CFD29F3B28CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97C50ECF-B6B1-40EB-8ED1-CFD29F3B28CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97C50ECF-B6B1-40EB-8ED1-CFD29F3B28CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{69712225-C39E-4A37-BEEA-28193B976317} = {D014CA62-4383-4CF9-99D2-9E72CB606AE1}
+		{97C50ECF-B6B1-40EB-8ED1-CFD29F3B28CA} = {5F4B01C9-D6AB-4DFC-B9A4-AF478EC512E2}
+	EndGlobalSection
+EndGlobal

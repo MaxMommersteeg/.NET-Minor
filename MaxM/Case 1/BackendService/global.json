@@ -1,0 +1,3 @@
+{
+  "projects": [ "BackendService/src/data", "BackendService/src/webApi" ]
+}

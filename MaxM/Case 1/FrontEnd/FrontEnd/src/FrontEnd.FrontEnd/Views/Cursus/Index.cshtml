@@ -1,0 +1,94 @@
+@using FrontEnd.Extensions;
+@using FrontEnd.ViewModels.Shared;
+@model FrontEnd.ViewModels.Cursus.CursusListViewModel
+@section scripts
+{
+    @* Load page specific scripts here *@
+    <script src="@Url.Content("~/js/cursus-index.js")"></script>
+}
+@{
+    ViewData["Title"] = Model.GetTitle();
+}
+
+@Html.Partial(@"..\Shared\_PageHeader", new PageHeaderViewModel(Model.GetTitle(), Model.GetDescription()))
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-6">
+        <h4>Zoeken</h4>
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.DisplayNameFor(x => x.WeekNumber)
+                @Html.DropDownListFor(x => x.WeekNumber, Model.WeekNumbers, new { @class = "form-control", id = "ddlWeekNumbers" })
+                @Html.DescriptionFor(x => x.WeekNumber)
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                @Html.DisplayNameFor(x => x.Year)
+                @Html.DropDownListFor(x => x.Year, Model.Years, new { @class = "form-control", id = "ddlYears" })
+                @Html.DescriptionFor(x => x.Year)
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                @* Ugly hack *@
+                <br />
+                <button id="btnShowCursussenByYearAndWeek" class="btn btn-primary">Toon</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <button id="btnPreviousWeek" class="pull-left btn btn-default">Vorige week</button>
+        <button id="btnNextWeek" class="pull-right btn btn-default">Volgende week</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <hr />
+    </div>
+</div>
+
+@if (Model.Cursussen == null || Model.Cursussen.Count() == 0)
+{
+    <p>Geen cursussen gevonden voor deze week</p>
+}
+else
+{
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h4>Cursussen</h4>
+            <table class="table table-condensed">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(x => x.Cursussen.First().StartDate)</th>
+                        <th>@Html.DisplayNameFor(x => x.Cursussen.First().DateCount)</th>
+                        <th>@Html.DisplayNameFor(x => x.Cursussen.First().Title)</th>
+                        <th>@Html.DisplayNameFor(x => x.Cursussen.First().CursistCount)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Cursussen)
+                    {
+                        <tr>
+                            <td>@Html.DateForFormat(item.StartDate, DateFormats.ddMMyyyy)</td>
+                            <td>@item.DateCount</td>
+                            <td>@item.Title</td>
+                            <td>@item.CursistCount</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+

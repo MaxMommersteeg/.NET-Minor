@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Linq.Test", "Linq.Test\Linq.Test.xproj", "{B0677B15-38C3-4ACE-86BD-7232A2C80CB9}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LinqOefening", "LinqOefening\LinqOefening.xproj", "{B69EC32A-1E9A-44FE-804D-97CD4B51809D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B0677B15-38C3-4ACE-86BD-7232A2C80CB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0677B15-38C3-4ACE-86BD-7232A2C80CB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0677B15-38C3-4ACE-86BD-7232A2C80CB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0677B15-38C3-4ACE-86BD-7232A2C80CB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B69EC32A-1E9A-44FE-804D-97CD4B51809D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B69EC32A-1E9A-44FE-804D-97CD4B51809D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B69EC32A-1E9A-44FE-804D-97CD4B51809D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B69EC32A-1E9A-44FE-804D-97CD4B51809D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

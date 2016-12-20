@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0-*",
+  "authors": [ "Marco Pil" ],
+
+  "dependencies": {
+    "NETStandard.Library": "1.6.0",
+    "System.Threading.Thread": "4.0.0-rc2-24027"
+  },
+
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50"
+    }
+  },
+
+  "packOptions": {
+    "summary": "A library for threading demos",
+    "tags": [ "threading", "asynchronous programming", "async", "await" ],
+    "owners": [ "Info Support" ]
+  },
+
+  "scripts": {
+    "postcompile": [
+      "dotnet pack -o C:\\_localNugetFeed --no-build --configuration %compile:Configuration%"
+    ]
+  }
+}

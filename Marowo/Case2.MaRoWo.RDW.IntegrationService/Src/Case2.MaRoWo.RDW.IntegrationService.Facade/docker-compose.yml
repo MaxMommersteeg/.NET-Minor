@@ -1,0 +1,44 @@
+version: '2'
+
+services:
+  marowo.rdw.is.mssql:
+    image: microsoft/mssql-server-linux
+    container_name: marowo-rdw-is-mssql
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: P@55w0rd
+    networks:
+      - marowo_rdw_is_network
+    ports:
+      - 9000:1433
+    volumes:
+      - "C:/Docker/.RdwIsData/db:/var/opt/mssql/"
+
+  case2.marowo.rdw.integrationservice.facade:
+    image: robg66/marowo.rdw.integrationservice${TAG}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      dbconnectionstring: Server=marowo-rdw-is-mssql;Database=MaRoWoRdwIs;User Id=sa;Password=P@55w0rd;
+      rabbitmq-exchange: MaRoWoEventbus
+      rabbitmq-host: marowo-rabbitmq-server
+      rabbitmq-username: MaRoWo
+      rabbitmq-password: MaR0W0
+      keuringsverzoek-xmlns: http://www.rdw.nl
+      keuringsverzoek-apk: http://www.rdw.nl/apk
+      rdw-requesturl: http://rdwserver:18423/rdw/APKKeuringsverzoek
+      logpath: /var/log/Garage/RdwIntegrationLogging
+    networks:
+      - marowo_rdw_is_network
+      - marowo_main_network
+    ports:
+      - 8000:80
+    volumes:
+      - "C:/Docker/.RdwIsData/Log:/var/log/Garage/RdwIntegrationLogging/"
+
+networks:
+  marowo_main_network: 
+    external:
+      name: marowo_main_network
+  marowo_rdw_is_network:

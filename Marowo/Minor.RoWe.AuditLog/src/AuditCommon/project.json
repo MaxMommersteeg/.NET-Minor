@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "Case2.MaRoWo.Logger": "1.0.*",
+    "Microsoft.EntityFrameworkCore": "1.0.1",
+    "Minor.RoWe.Common": "*",
+    "Minor.RoWe.Eventbus": "*",
+    "NETStandard.Library": "1.6.0",
+    "Newtonsoft.Json": "9.0.1",
+    "System.Text.Encoding": "4.0.11"
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": "dnxcore50"
+    }
+  }
+}

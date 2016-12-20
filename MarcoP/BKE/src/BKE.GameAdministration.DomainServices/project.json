@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "BKE.GameAdministation.Domain": "1.0.0-*",
+    "BKE.GameAdministation.Incoming": "1.0.0-*",
+    "BKE.GameAdministation.Outgoing": "1.0.0-*",
+    "NETStandard.Library": "1.6.0"
+  },
+
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50"
+    }
+  }
+}

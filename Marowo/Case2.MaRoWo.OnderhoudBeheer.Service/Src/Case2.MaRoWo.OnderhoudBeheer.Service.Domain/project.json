@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "Case2.MaRoWo.OnderhoudBeheer.Service.Incoming": "1.0.0-*",
+    "Minor.Case2.Events": "1.*",
+    "Minor.RoWe.Common": "2.*",
+    "NETStandard.Library": "1.6.0"
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": "dnxcore50"
+    }
+  }
+}

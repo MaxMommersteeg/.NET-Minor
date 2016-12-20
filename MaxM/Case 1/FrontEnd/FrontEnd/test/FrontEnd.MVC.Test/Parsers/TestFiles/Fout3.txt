@@ -1,0 +1,14 @@
+﻿Titel: C# Programmeren 1
+Cursuscode: CNETIN
+Duur: 5 dagen
+Startdatum: 13/10/2014
+
+Titel: SQL Server
+Cursuscode: CNETIN
+Duur: 3 dagen
+Startdatum: 20/10/2014
+
+Titel: SQL Server
+Cursuscode: CNETIN
+Duur: 3 dagen
+Startdatum: 21-10-2014

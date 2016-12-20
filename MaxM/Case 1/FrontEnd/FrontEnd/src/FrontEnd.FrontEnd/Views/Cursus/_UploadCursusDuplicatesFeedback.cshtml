@@ -1,0 +1,14 @@
+@if (ViewData.ModelState["CursusFileDuplicates"] != null)
+{
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+            @ViewData["CursusFileDuplicatesTitle"]
+        </div>
+        <div class="panel-body">
+            @foreach (var error in ViewData.ModelState["CursusFileDuplicates"].Errors)
+            {
+                <p>@error.ErrorMessage</p>
+            }
+        </div>
+    </div>
+}

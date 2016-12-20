@@ -1,0 +1,50 @@
+version: '2'
+
+services:
+  case2.marowo.garageadministratie.facade:
+    image: robg66/marowo.garage.administratie.frontend${TAG}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      dbconnectionstring: Server=marowo-frontend-mssql;Database=MaRoWoGarageAdministratie;User Id=sa;Password=P@55w0rd;
+      rdw-integration-service: http://case2marowordwintegrationservicefacade_case2.marowo.rdw.integrationservice.facade_1
+      onderhoud-beheer-service:  http://case2marowoonderhoudbeheerservicefacade_case2.marowo.onderhoudbeheer.service.facade_1
+      rabbitmq-exchange: MaRoWoEventbus
+      rabbitmq-queue: Frontend
+      rabbitmq-host: marowo-rabbitmq-server
+      rabbitmq-username: MaRoWo
+      rabbitmq-password: MaR0W0
+      logpath: /var/log/Garage/FrontEndLogging
+      kvk-nummer: 3013 5370
+      instantie-type: garage
+      bedrijfsnaam: Garage MaRoWo B.V.
+      bedrijf-plaats: Utrecht
+    networks:
+      - marowo_frontend_network
+      - marowo_main_network
+    ports:
+      - 8001:80
+    depends_on:
+      - marowo.frontend.mssql
+    volumes:
+      - "C:/Docker/.FrontendData/Log:/var/log/Garage/FrontEndLogging/"
+
+  marowo.frontend.mssql:
+    image: microsoft/mssql-server-linux
+    container_name: marowo-frontend-mssql
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: P@55w0rd
+    networks:
+      - marowo_frontend_network
+    ports:
+      - 9001:1433
+    volumes:
+      - "C:/Docker/.FrontendData/db:/var/opt/mssql/"
+
+networks:
+  marowo_main_network: 
+    external:
+      name: marowo_main_network
+  marowo_frontend_network:
